@@ -2,7 +2,7 @@
 {
    public class RolledDie
    {
-      Die rolledDie;
-      int rolledValue;
+      public Die rolledDie;
+      public int rolledValue;
    }
 }
