@@ -1,6 +1,6 @@
 ﻿namespace OpenLegendRPGLib
 {
-   class DiceGroup
+   public class DiceGroup
    {
       public int AmountOfDice;
       public Die dieType;
