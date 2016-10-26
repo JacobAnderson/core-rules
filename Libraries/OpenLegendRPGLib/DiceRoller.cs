@@ -22,5 +22,10 @@ namespace OpenLegendRPGLib
 
          return rolledList;
       }
+
+      public List<RolledDie> ExplodeDice( List<RolledDie> currentPool )
+      {
+         return currentPool; //stub TODO
+      }
    }
 }
