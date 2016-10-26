@@ -10,5 +10,12 @@ namespace OpenLegendRPGLib
 
          return rolledList;
       }
+
+      public List<RolledDie> Roll( DiceGroup diceToRoll, int advantageSum )
+      {
+         var rolledList = new List<RolledDie>();
+
+         return rolledList;
+      }
    }
 }
