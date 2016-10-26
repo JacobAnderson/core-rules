@@ -7,7 +7,8 @@ namespace OpenLegendRPGLib
       public List<RolledDie> ActionRoll( DiceGroup baseDice, DiceGroup attributeDice, int advantageSum )
       {
          var rolledList = new List<RolledDie>();
-
+         rolledList.AddRange( Roll( baseDice ) );
+         rolledList.AddRange( Roll( attributeDice, advantageSum ) );
          return rolledList;
       }
 
