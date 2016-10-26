@@ -9,6 +9,7 @@ namespace OpenLegendRPGLib
          var rolledList = new List<RolledDie>();
          rolledList.AddRange( Roll( baseDice ) );
          rolledList.AddRange( Roll( attributeDice, advantageSum ) );
+         ExplodeDice( ref rolledList );
          return rolledList;
       }
 
