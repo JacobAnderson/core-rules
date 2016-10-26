@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace OpenLegendRPGLib
 {
@@ -31,6 +32,19 @@ namespace OpenLegendRPGLib
 
          return rolledList;
       }
+
+      public void ExplodeDice( ref List<RolledDie> currentPool )
+      {
+         var newDice = new List<Die>();
+         newDice = currentPool.Where( x => x.rolledValue == x.rolledDie.Sides ).Select( rolled => rolled.rolledDie ).ToList();
+
+         if ( newDice.Count > 0 )
+         {
+            var newRolledDice = Roll( newDice );
+            ExplodeDice( ref newRolledDice );
+            currentPool.AddRange( newRolledDice );
+         }
+
       }
    }
 }
