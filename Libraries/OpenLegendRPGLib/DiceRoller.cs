@@ -10,6 +10,12 @@ namespace OpenLegendRPGLib
       {
          return ActionRoll( baseDice, attributeDice, advantageValue - disadvantageValue );
       }
+
+      public static List<RolledDie> ActionRoll( DiceGroup baseDice, DiceGroup attributeDice )
+      {
+         return ActionRoll( baseDice, attributeDice, 0 );
+      }
+
       public static List<RolledDie> ActionRoll( DiceGroup baseDice, DiceGroup attributeDice, int advantageSum )
       {
          var rolledList = new List<RolledDie>();
