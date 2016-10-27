@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenLegendRPGLib;
+using System;
 
 namespace OpenLegendLib_TestApp
 {
@@ -10,6 +7,19 @@ namespace OpenLegendLib_TestApp
    {
       static void Main( string[] args )
       {
+         var d20 = new Die(20);
+         var d8 = new Die(8);
+
+         var baseDiceGroup = new DiceGroup( 1, d20 );
+         var abilityDiceGroup = new DiceGroup( 1, d8 );
+
+         var rolledDice = DiceRoller.ActionRoll( baseDiceGroup, abilityDiceGroup );
+
+         foreach ( var die in rolledDice )
+         {
+            Console.WriteLine( die.rolledValue );
+            Console.WriteLine();
+         }
       }
    }
 }
