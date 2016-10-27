@@ -6,6 +6,8 @@ namespace OpenLegendRPGLib
 {
    public static class DiceRoller
    {
+      static Random _random = new Random();
+
       public static List<RolledDie> ActionRoll( DiceGroup baseDice, DiceGroup attributeDice, int advantageValue, int disadvantageValue )
       {
          return ActionRoll( baseDice, attributeDice, advantageValue - disadvantageValue );
@@ -55,8 +57,7 @@ namespace OpenLegendRPGLib
 
       public static int Roll( Die dieToRoll )
       {
-         Random rnd = new Random();
-         return rnd.Next();
+         return _random.Next( dieToRoll.Sides ) + 1; //1 to sides inclusive
       }
 
       public static List<RolledDie> Roll( List<Die> diceToRoll )
