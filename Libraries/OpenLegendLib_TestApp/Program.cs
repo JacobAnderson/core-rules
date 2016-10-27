@@ -17,8 +17,8 @@ namespace OpenLegendLib_TestApp
 
          foreach ( var die in rolledDice )
          {
-            Console.WriteLine( die.rolledValue );
-            Console.WriteLine();
+            string explodeText = die.rolledDie.Sides == die.rolledValue ? " Explode!" : "";
+            Console.WriteLine( "Rolled a d" + die.rolledDie.Sides + " Got " + die.rolledValue + explodeText );
          }
       }
    }
