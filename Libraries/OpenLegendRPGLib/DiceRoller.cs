@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace OpenLegendRPGLib
 {
-   public class DiceRoller
+   public static class DiceRoller
    {
-      public List<RolledDie> ActionRoll( DiceGroup baseDice, DiceGroup attributeDice, int advantageSum )
+      public static List<RolledDie> ActionRoll( DiceGroup baseDice, DiceGroup attributeDice, int advantageSum )
       {
          var rolledList = new List<RolledDie>();
          rolledList.AddRange( Roll( baseDice ) );
@@ -14,26 +15,26 @@ namespace OpenLegendRPGLib
          return rolledList;
       }
 
-      public List<RolledDie> Roll( DiceGroup diceToRoll )
+      public static List<RolledDie> Roll( DiceGroup diceToRoll )
       {
          return Roll( diceToRoll, 0 );
       }
 
-      public List<RolledDie> Roll( DiceGroup diceToRoll, int advantageSum )
+      public static List<RolledDie> Roll( DiceGroup diceToRoll, int advantageSum )
       {
          var rolledList = new List<RolledDie>();
 
          return rolledList;
       }
 
-      public List<RolledDie> Roll( List<Die> diceToRoll )
+      public static int Roll( Die dieToRoll )
       {
          var rolledList = new List<RolledDie>();
 
          return rolledList;
       }
 
-      public void ExplodeDice( ref List<RolledDie> currentPool )
+      public static void ExplodeDice( ref List<RolledDie> currentPool )
       {
          var newDice = new List<Die>();
          newDice = currentPool.Where( x => x.rolledValue == x.rolledDie.Sides ).Select( rolled => rolled.rolledDie ).ToList();
