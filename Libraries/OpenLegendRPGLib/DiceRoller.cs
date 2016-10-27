@@ -27,14 +27,39 @@ namespace OpenLegendRPGLib
       public static List<RolledDie> Roll( DiceGroup diceToRoll, int advantageSum )
       {
          var rolledList = new List<RolledDie>();
+         int baseDiceToRoll = diceToRoll.AmountOfDice;
+         int advDiceToRoll = Math.Abs(advantageSum);
+         int TotalDiceToRoll = baseDiceToRoll + advDiceToRoll;
+         for ( int x = 0; x < TotalDiceToRoll; x++ )
+         {
+            rolledList.Add( new RolledDie( diceToRoll.dieType ) );
+         }
 
+         rolledList = rolledList.OrderByDescending( x => x.rolledValue ).ToList();
+         if ( advantageSum > 0 )
+         {
+            rolledList.Take( baseDiceToRoll );
+         }
+         else if ( advantageSum < 0 )
+         {
+            rolledList.Skip( advDiceToRoll );
+         }
          return rolledList;
       }
 
       public static int Roll( Die dieToRoll )
       {
-         var rolledList = new List<RolledDie>();
+         Random rnd = new Random();
+         return rnd.Next();
+      }
 
+      public static List<RolledDie> Roll( List<Die> diceToRoll )
+      {
+         var rolledList = new List<RolledDie>();
+         foreach ( var singleDie in diceToRoll )
+         {
+            rolledList.Add( new RolledDie( singleDie ) );
+         }
          return rolledList;
       }
 
