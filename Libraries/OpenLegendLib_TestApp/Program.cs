@@ -1,5 +1,6 @@
 ﻿using OpenLegendRPGLib;
 using System;
+using static OpenLegendRPGLib.DiceConstants;
 
 namespace OpenLegendLib_TestApp
 {
@@ -7,9 +8,6 @@ namespace OpenLegendLib_TestApp
    {
       static void Main( string[] args )
       {
-         var d20 = new Die(20);
-         var d8 = new Die(8);
-
          var baseDiceGroup = new DiceGroup( 1, d20 );
          var abilityDiceGroup = new DiceGroup( 1, d8 );
 
